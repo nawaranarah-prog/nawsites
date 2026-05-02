@@ -507,12 +507,17 @@ section:nth-child(even) {
 
 .form-row {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .form-group {
     flex: 1;
+}
+
+.form-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
 }
 
 .form-group.full-width {
@@ -780,32 +785,8 @@ input:focus, select:focus, textarea:focus {
     border-radius: 1px;
 }
 
-/* Formspree Messages */
-[data-fs-success] {
-    display: none;
-    background-color: #d4edda;
-    color: #155724;
-    padding: 1rem;
-    border-radius: 6px;
-    margin-bottom: 1rem;
-    border: 1px solid #c3e6cb;
-}
-
-[data-fs-error] {
-    display: none;
-    background-color: #f8d7da;
-    color: #721c24;
-    padding: 1rem;
-    border-radius: 6px;
-    margin-bottom: 1rem;
-    border: 1px solid #f5c6cb;
-}
-
-[data-fs-error][data-fs-error-for] {
-    margin-top: 0.5rem;
-    padding: 0.5rem;
-    font-size: 0.9rem;
-}
+/* Responsive Design */
+@media (max-width: 768px) {
     .hamburger {
         display: flex;
     }
