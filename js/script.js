@@ -112,22 +112,39 @@ document.querySelectorAll('section:not(#home)').forEach(section => {
     observer.observe(section);
 });
 
-// Language toggle (placeholder)
+// REAL Language toggle logic
 document.getElementById('lang-toggle').addEventListener('click', function() {
-    // Placeholder for language switching
-    alert('Language switching functionality would be implemented here');
+    const btn = this;
+    const heroTitle = document.querySelector('.hero-content h1');
+    
+    if (btn.textContent === 'EN') {
+        btn.textContent = 'AR';
+        heroTitle.textContent = "تصميم مواقع احترافية في دبي"; 
+        document.body.style.direction = 'rtl';
+    } else {
+        btn.textContent = 'EN';
+        heroTitle.textContent = "Premium Web Development in Dubai";
+        document.body.style.direction = 'ltr';
+    }
 });
 
-// Currency toggle
+// REAL Currency toggle logic
 document.getElementById('currency-toggle').addEventListener('click', function() {
     const button = this;
+    const priceElements = document.querySelectorAll('.price, .price-range');
+    
     if (button.textContent === 'AED') {
         button.textContent = 'USD';
-        // Placeholder for currency conversion
-        alert('Currency switching to USD (placeholder)');
+        priceElements.forEach(el => {
+            if (el.textContent.includes('AED')) {
+                let aedVal = parseInt(el.textContent.replace(/[^0-9]/g, ''));
+                let usdVal = Math.round(aedVal / 3.67);
+                el.textContent = el.textContent.replace('AED', '$').replace(/[0-9,]+/, usdVal.toLocaleString());
+            }
+        });
     } else {
         button.textContent = 'AED';
-        alert('Currency switching to AED (placeholder)');
+        location.reload(); 
     }
 });
 
@@ -243,6 +260,20 @@ function initMobileMenu() {
 document.addEventListener('DOMContentLoaded', function() {
     initMobileMenu();
 
-    // Add fade-in animation to hero content
-    document.querySelector('.hero-content').classList.add('fade-in-up');
+    // 1. Make the Hero show up immediately
+    const hero = document.querySelector('.hero-content');
+    if (hero) {
+        hero.classList.add('fade-in-up');
+        hero.style.opacity = "1"; // Force it!
+    }
+
+    // 2. This is the magic fix for your "Empty" sections:
+    // It tells every section to stop being invisible the moment the page loads.
+    document.querySelectorAll('section').forEach(section => {
+        section.classList.add('fade-in-up');
+        section.style.opacity = "1"; 
+        section.style.transform = "translateY(0)";
+    });
+    
+    console.log("Nawsites is fully loaded and forced to be visible!");
 });

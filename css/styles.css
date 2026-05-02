@@ -177,42 +177,88 @@ p {
 }
 
 .hero-content {
-    flex: 1;
-    padding-right: 2rem;
+    width: min(100%, 760px);
+    padding-right: 0;
+}
+
+.hero-tag {
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #002244;
+    opacity: 0.75;
 }
 
 .hero-content h1 {
     margin-bottom: 1.5rem;
     color: #001122;
+    max-width: 800px;
 }
 
 .hero-content p {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     margin-bottom: 2rem;
-    color: #555;
+    color: #4f5666;
+    max-width: 720px;
 }
 
 .cta-buttons {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    margin-bottom: 2rem;
 }
 
-.hero-image {
-    flex: 1;
-    text-align: center;
+.hero-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
-.hero-image img {
-    max-width: 100%;
-    height: auto;
+.highlight {
+    background: #f3f6fc;
+    border: 1px solid rgba(0, 18, 34, 0.08);
+    padding: 1rem 1.2rem;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 18, 34, 0.1);
+    color: #001122;
+    font-size: 0.98rem;
+    line-height: 1.5;
+}
+
+.highlight strong {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: #001122;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 88px);
+    padding: 120px 20px 80px;
+    background: linear-gradient(135deg, #ffffff 0%, #f7f8fb 100%);
+}
+
+.hero .btn.primary {
+    min-width: 180px;
+}
+
+.hero .btn.secondary {
+    min-width: 200px;
 }
 
 /* Sections */
+html {
+    scroll-behavior: smooth;
+}
+
 section {
     padding: 80px 0;
+    scroll-margin-top: 120px;
 }
 
 section:nth-child(even) {
@@ -672,10 +718,6 @@ footer {
     50% { box-shadow: 0 0 30px rgba(0, 18, 34, 0.2); }
 }
 
-.hero-image img {
-    animation: float 6s ease-in-out infinite;
-}
-
 .btn.primary {
     animation: glow 2s ease-in-out infinite alternate;
 }
@@ -865,4 +907,37 @@ input:focus, select:focus, textarea:focus {
 @keyframes slideIn {
     from { transform: translateY(-50px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
+}
+
+/* Crucial Animation Fix */
+section:not(#home) {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+section.fade-in-up {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Fix for the initial Hero load */
+.hero-content {
+    opacity: 0;
+}
+
+.hero-content.fade-in-up {
+    opacity: 1;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
