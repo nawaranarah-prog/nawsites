@@ -1,0 +1,19 @@
+{
+  "name": "nawsites",
+  "version": "1.0.0",
+  "description": "A professional, responsive website for Nawar, a freelance web developer based in Dubai.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "vite": "^8.0.10"
+  }
+}
