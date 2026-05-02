@@ -249,25 +249,20 @@
                         <div class="form-group">
                             <label for="full-name">Full Name *</label>
                             <input type="text" id="full-name" name="full-name" data-fs-field required>
-                            <span data-fs-error="full-name"></span>
-                        </div>
                         </div>
                         <div class="form-group">
                             <label for="email">Email *</label>
                             <input type="email" id="email" name="email" data-fs-field required>
-                            <span data-fs-error="email"></span>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="phone">Phone / WhatsApp *</label>
                             <input type="tel" id="phone" name="phone" data-fs-field required>
-                            <span data-fs-error="phone"></span>
                         </div>
                         <div class="form-group">
                             <label for="business-name">Business Name *</label>
                             <input type="text" id="business-name" name="business-name" data-fs-field required>
-                            <span data-fs-error="business-name"></span>
                         </div>
                     </div>
                     <div class="form-row">
@@ -281,8 +276,6 @@
                                 <option value="redesign">Website Redesign</option>
                                 <option value="other">Other</option>
                             </select>
-                            <span data-fs-error="website-type"></span>
-                        </div>
                         </div>
                         <div class="form-group">
                             <label for="budget">Budget Range</label>
@@ -293,13 +286,11 @@
                                 <option value="10k-15k">AED 10,000 - 15,000</option>
                                 <option value="15k+">AED 15,000+</option>
                             </select>
-                            <span data-fs-error="budget"></span>
                         </div>
                     </div>
                     <div class="form-group full-width">
                         <label for="description">Project Description *</label>
                         <textarea id="description" name="description" rows="4" placeholder="Describe your project requirements, goals, and any specific features you need..." data-fs-field required></textarea>
-                        <span data-fs-error="description"></span>
                     </div>
                     <div class="form-group full-width">
                         <label>Features Needed</label>
@@ -338,7 +329,6 @@
                             <option value="2-4-weeks">2-4 weeks</option>
                             <option value="flexible">Flexible</option>
                         </select>
-                        <span data-fs-error="timeline"></span>
                     </div>
                     <button type="submit" class="btn primary full-width" data-fs-submit-btn>Request My Quote</button>
                 </form>
@@ -381,26 +371,20 @@
                     <div class="form-group">
                         <label for="full-name-modal">Full Name *</label>
                         <input type="text" id="full-name-modal" name="full-name" data-fs-field required>
-                        <span data-fs-error="full-name"></span>
                     </div>
                     <div class="form-group">
                         <label for="email-modal">Email *</label>
                         <input type="email" id="email-modal" name="email" data-fs-field required>
-                        <span data-fs-error="email"></span>
-                    </div>
-                </div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="phone-modal">Phone / WhatsApp *</label>
                         <input type="tel" id="phone-modal" name="phone" data-fs-field required>
-                        <span data-fs-error="phone"></span>
                     </div>
                     <div class="form-group">
                         <label for="business-name-modal">Business Name *</label>
                         <input type="text" id="business-name-modal" name="business-name" data-fs-field required>
-                        <span data-fs-error="business-name"></span>
                     </div>
                 </div>
                 <div class="form-row">
@@ -414,7 +398,6 @@
                             <option value="redesign">Website Redesign</option>
                             <option value="other">Other</option>
                         </select>
-                        <span data-fs-error="website-type"></span>
                     </div>
                     <div class="form-group">
                         <label for="budget-modal">Budget Range</label>
@@ -430,7 +413,6 @@
                 <div class="form-group full-width">
                     <label for="description-modal">Project Description *</label>
                     <textarea id="description-modal" name="description" rows="4" placeholder="Describe your project requirements, goals, and any specific features you need..." data-fs-field required></textarea>
-                    <span data-fs-error="description"></span>
                 </div>
                 <div class="form-group full-width">
                     <label>Features Needed</label>
@@ -469,7 +451,6 @@
                         <option value="2-4-weeks">2-4 weeks</option>
                         <option value="flexible">Flexible</option>
                     </select>
-                    <span data-fs-error="timeline"></span>
                 </div>
                 <button type="submit" class="btn primary full-width" data-fs-submit-btn>Request My Quote</button>
             </form>
@@ -504,13 +485,12 @@
         </div>
     </footer>
 
+    <script src="js/script.js"></script>
     <script>
       window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
       formspree('initForm', { formElement: '#quote-form', formId: 'mwvyvpdb' });
       formspree('initForm', { formElement: '#quote-form-modal', formId: 'mwvyvpdb' });
     </script>
     <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
-
-    <script src="js/script.js"></script>
 </body>
 </html>
