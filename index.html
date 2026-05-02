@@ -242,31 +242,38 @@
             <div class="container">
                 <h2>Request a Quote</h2>
                 <p>Get a personalized quote for your web development project</p>
-                <form id="quote-form" class="quote-form" action="[https://formspree.io/f/mwvyvpdb](https://formspree.io/f/mwvyvpdb)" method="POST">
+                <div data-fs-success></div>
+                <div data-fs-error></div>
+                <form id="quote-form" class="quote-form" data-fs-form="mwvyvpdb">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="full-name">Full Name *</label>
-                            <input type="text" id="full-name" name="full-name" required>
+                            <input type="text" id="full-name" name="full-name" data-fs-field required>
+                            <span data-fs-error="full-name"></span>
+                        </div>
                         </div>
                         <div class="form-group">
                             <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" data-fs-field required>
+                            <span data-fs-error="email"></span>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="phone">Phone / WhatsApp *</label>
-                            <input type="tel" id="phone" name="phone" required>
+                            <input type="tel" id="phone" name="phone" data-fs-field required>
+                            <span data-fs-error="phone"></span>
                         </div>
                         <div class="form-group">
                             <label for="business-name">Business Name *</label>
-                            <input type="text" id="business-name" name="business-name" required>
+                            <input type="text" id="business-name" name="business-name" data-fs-field required>
+                            <span data-fs-error="business-name"></span>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="website-type">Type of Website</label>
-                            <select id="website-type" name="website-type">
+                            <select id="website-type" name="website-type" data-fs-field>
                                 <option value="">Select type</option>
                                 <option value="business">Business Website</option>
                                 <option value="landing">Landing Page</option>
@@ -274,61 +281,66 @@
                                 <option value="redesign">Website Redesign</option>
                                 <option value="other">Other</option>
                             </select>
+                            <span data-fs-error="website-type"></span>
+                        </div>
                         </div>
                         <div class="form-group">
                             <label for="budget">Budget Range</label>
-                            <select id="budget" name="budget">
+                            <select id="budget" name="budget" data-fs-field>
                                 <option value="">Select budget</option>
                                 <option value="4k-7k">AED 4,000 - 7,000</option>
                                 <option value="7k-10k">AED 7,000 - 10,000</option>
                                 <option value="10k-15k">AED 10,000 - 15,000</option>
                                 <option value="15k+">AED 15,000+</option>
                             </select>
+                            <span data-fs-error="budget"></span>
                         </div>
                     </div>
                     <div class="form-group full-width">
                         <label for="description">Project Description *</label>
-                        <textarea id="description" name="description" rows="4" placeholder="Describe your project requirements, goals, and any specific features you need..." required></textarea>
+                        <textarea id="description" name="description" rows="4" placeholder="Describe your project requirements, goals, and any specific features you need..." data-fs-field required></textarea>
+                        <span data-fs-error="description"></span>
                     </div>
                     <div class="form-group full-width">
                         <label>Features Needed</label>
                         <div class="checkboxes">
                             <label class="checkbox">
-                                <input type="checkbox" name="features" value="booking">
+                                <input type="checkbox" name="features" value="booking" data-fs-field>
                                 <span>Booking System</span>
                             </label>
                             <label class="checkbox">
-                                <input type="checkbox" name="features" value="ecommerce">
+                                <input type="checkbox" name="features" value="ecommerce" data-fs-field>
                                 <span>E-commerce</span>
                             </label>
                             <label class="checkbox">
-                                <input type="checkbox" name="features" value="contact-forms">
+                                <input type="checkbox" name="features" value="contact-forms" data-fs-field>
                                 <span>Contact Forms</span>
                             </label>
                             <label class="checkbox">
-                                <input type="checkbox" name="features" value="seo">
+                                <input type="checkbox" name="features" value="seo" data-fs-field>
                                 <span>SEO Optimization</span>
                             </label>
                             <label class="checkbox">
-                                <input type="checkbox" name="features" value="cms">
+                                <input type="checkbox" name="features" value="cms" data-fs-field>
                                 <span>Content Management System</span>
                             </label>
                             <label class="checkbox">
-                                <input type="checkbox" name="features" value="analytics">
+                                <input type="checkbox" name="features" value="analytics" data-fs-field>
                                 <span>Analytics Integration</span>
                             </label>
                         </div>
                     </div>
                     <div class="form-group full-width">
                         <label for="timeline">Preferred Timeline</label>
-                        <select id="timeline" name="timeline">
+                        <select id="timeline" name="timeline" data-fs-field>
                             <option value="">Select timeline</option>
                             <option value="asap">ASAP</option>
                             <option value="2-4-weeks">2-4 weeks</option>
                             <option value="flexible">Flexible</option>
                         </select>
+                        <span data-fs-error="timeline"></span>
                     </div>
-                    <button type="submit" class="btn primary full-width">Request My Quote</button>
+                    <button type="submit" class="btn primary full-width" data-fs-submit-btn>Request My Quote</button>
                 </form>
             </div>
         </section>
@@ -362,31 +374,39 @@
             <span class="close-modal">&times;</span>
             <h2>Request a Quote</h2>
             <p>Get a personalized quote for your web development project</p>
-            <form id="quote-form-modal" class="quote-form" action="[https://formspree.io/f/mwvyvpdb](https://formspree.io/f/mwvyvpdb)" method="POST">
+            <div data-fs-success></div>
+            <div data-fs-error></div>
+            <form id="quote-form-modal" class="quote-form" data-fs-form="mwvyvpdb">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="full-name-modal">Full Name *</label>
-                        <input type="text" id="full-name-modal" name="full-name" required>
+                        <input type="text" id="full-name-modal" name="full-name" data-fs-field required>
+                        <span data-fs-error="full-name"></span>
                     </div>
                     <div class="form-group">
                         <label for="email-modal">Email *</label>
-                        <input type="email" id="email-modal" name="email" required>
+                        <input type="email" id="email-modal" name="email" data-fs-field required>
+                        <span data-fs-error="email"></span>
+                    </div>
+                </div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="phone-modal">Phone / WhatsApp *</label>
-                        <input type="tel" id="phone-modal" name="phone" required>
+                        <input type="tel" id="phone-modal" name="phone" data-fs-field required>
+                        <span data-fs-error="phone"></span>
                     </div>
                     <div class="form-group">
                         <label for="business-name-modal">Business Name *</label>
-                        <input type="text" id="business-name-modal" name="business-name" required>
+                        <input type="text" id="business-name-modal" name="business-name" data-fs-field required>
+                        <span data-fs-error="business-name"></span>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="website-type-modal">Type of Website</label>
-                        <select id="website-type-modal" name="website-type">
+                        <select id="website-type-modal" name="website-type" data-fs-field>
                             <option value="">Select type</option>
                             <option value="business">Business Website</option>
                             <option value="landing">Landing Page</option>
@@ -394,10 +414,11 @@
                             <option value="redesign">Website Redesign</option>
                             <option value="other">Other</option>
                         </select>
+                        <span data-fs-error="website-type"></span>
                     </div>
                     <div class="form-group">
                         <label for="budget-modal">Budget Range</label>
-                        <select id="budget-modal" name="budget">
+                        <select id="budget-modal" name="budget" data-fs-field>
                             <option value="">Select budget</option>
                             <option value="4k-7k">AED 4,000 - 7,000</option>
                             <option value="7k-10k">AED 7,000 - 10,000</option>
@@ -408,47 +429,49 @@
                 </div>
                 <div class="form-group full-width">
                     <label for="description-modal">Project Description *</label>
-                    <textarea id="description-modal" name="description" rows="4" placeholder="Describe your project requirements, goals, and any specific features you need..." required></textarea>
+                    <textarea id="description-modal" name="description" rows="4" placeholder="Describe your project requirements, goals, and any specific features you need..." data-fs-field required></textarea>
+                    <span data-fs-error="description"></span>
                 </div>
                 <div class="form-group full-width">
                     <label>Features Needed</label>
                     <div class="checkboxes">
                         <label class="checkbox">
-                            <input type="checkbox" name="features" value="booking">
+                            <input type="checkbox" name="features" value="booking" data-fs-field>
                             <span>Booking System</span>
                         </label>
                         <label class="checkbox">
-                            <input type="checkbox" name="features" value="ecommerce">
+                            <input type="checkbox" name="features" value="ecommerce" data-fs-field>
                             <span>E-commerce</span>
                         </label>
                         <label class="checkbox">
-                            <input type="checkbox" name="features" value="contact-forms">
+                            <input type="checkbox" name="features" value="contact-forms" data-fs-field>
                             <span>Contact Forms</span>
                         </label>
                         <label class="checkbox">
-                            <input type="checkbox" name="features" value="seo">
+                            <input type="checkbox" name="features" value="seo" data-fs-field>
                             <span>SEO Optimization</span>
                         </label>
                         <label class="checkbox">
-                            <input type="checkbox" name="features" value="cms">
+                            <input type="checkbox" name="features" value="cms" data-fs-field>
                             <span>Content Management System</span>
                         </label>
                         <label class="checkbox">
-                            <input type="checkbox" name="features" value="analytics">
+                            <input type="checkbox" name="features" value="analytics" data-fs-field>
                             <span>Analytics Integration</span>
                         </label>
                     </div>
                 </div>
                 <div class="form-group full-width">
                     <label for="timeline-modal">Preferred Timeline</label>
-                    <select id="timeline-modal" name="timeline">
+                    <select id="timeline-modal" name="timeline" data-fs-field>
                         <option value="">Select timeline</option>
                         <option value="asap">ASAP</option>
                         <option value="2-4-weeks">2-4 weeks</option>
                         <option value="flexible">Flexible</option>
                     </select>
+                    <span data-fs-error="timeline"></span>
                 </div>
-                <button type="submit" class="btn primary full-width">Request My Quote</button>
+                <button type="submit" class="btn primary full-width" data-fs-submit-btn>Request My Quote</button>
             </form>
         </div>
     </div>
@@ -480,6 +503,13 @@
             </div>
         </div>
     </footer>
+
+    <script>
+      window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+      formspree('initForm', { formElement: '#quote-form', formId: 'mwvyvpdb' });
+      formspree('initForm', { formElement: '#quote-form-modal', formId: 'mwvyvpdb' });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
     <script src="js/script.js"></script>
 </body>
