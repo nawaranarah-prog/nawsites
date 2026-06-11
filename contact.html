@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Nawsites</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header id="navbar">
+        <nav>
+            <div class="nav-container">
+                <div class="logo">Nawsites</div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html#home"><i class="fas fa-home"></i> <span data-i18n="navHome">Home</span></a></li>
+                    <li><a href="services.html"><i class="fas fa-cogs"></i> <span data-i18n="navServices">Services</span></a></li>
+                    <li><a href="about.html"><i class="fas fa-user"></i> <span data-i18n="navAbout">About</span></a></li>
+                    <li><a href="portfolio.html"><i class="fas fa-briefcase"></i> <span data-i18n="navPortfolio">Portfolio</span></a></li>
+                    <li><a href="index.html#pricing"><i class="fas fa-tags"></i> <span data-i18n="navPricing">Pricing</span></a></li>
+                    <li><a class="active" href="contact.html"><i class="fas fa-phone"></i> <span data-i18n="navContact">Contact</span></a></li>
+                </ul>
+                <div class="nav-controls">
+                    <button id="lang-toggle" title="Switch Language"><i class="fas fa-globe"></i> EN</button>
+                    <button id="currency-toggle" title="Switch Currency"><i class="fas fa-dollar-sign"></i> AED</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="hero-content">
+                <span class="hero-tag" data-i18n="contactHeroTag">Contact • Quote • Support</span>
+                <h1 data-i18n="contactHeroTitle">Let's Build Your Digital Experience</h1>
+                <p data-i18n="contactHeroText">Reach out for a project consultation, quote, or support with your current website and backend systems.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-intro">
+                    <h2>Contact Details</h2>
+                    <p>Fast response for business inquiries, project requests, and ongoing support.</p>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <h3>Phone & WhatsApp</h3>
+                        <p><a href="tel:+971556112260">+971 55 611 2260</a></p>
+                        <p><a href="https://wa.me/971556112260" target="_blank">Chat on WhatsApp</a></p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Email</h3>
+                        <p><a href="mailto:Nawaranarah@gmail.com">Nawaranarah@gmail.com</a></p>
+                        <p>Typically responds within 24 hours.</p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Location</h3>
+                        <p>Dubai, UAE</p>
+                        <p>Remote work available worldwide.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-intro">
+                    <h2>Ready to Get Started?</h2>
+                    <p>Send your project details and I’ll follow up with a tailored proposal.</p>
+                </div>
+                <form class="quote-form" action="https://formspree.io/f/mwvyvpdb" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name-contact">Full Name *</label>
+                            <input type="text" id="name-contact" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email-contact">Email *</label>
+                            <input type="email" id="email-contact" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone-contact">Phone / WhatsApp *</label>
+                            <input type="tel" id="phone-contact" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service-contact">Service Needed</label>
+                            <select id="service-contact" name="service">
+                                <option value="business">Business Website</option>
+                                <option value="landing">Landing Page</option>
+                                <option value="ecommerce">E-commerce</option>
+                                <option value="redesign">Redesign</option>
+                                <option value="custom">Custom System</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="message-contact">Project Details *</label>
+                        <textarea id="message-contact" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn primary full-width">Send Request</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Nawsites</h4>
+                    <p>Premium web development services in Dubai</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="index.html#pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>+971 55 611 2260</p>
+                    <p>Nawaranarah@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Nawsites. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

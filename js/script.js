@@ -3,19 +3,23 @@ const modal = document.getElementById('quote-modal');
 const openModalBtn = document.getElementById('open-quote-modal');
 const closeModalBtn = document.querySelector('.close-modal');
 
-openModalBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    modal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-});
+if (openModalBtn && modal) {
+    openModalBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    });
+}
 
-closeModalBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-});
+if (closeModalBtn && modal) {
+    closeModalBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+}
 
 window.addEventListener('click', (e) => {
-    if (e.target === modal) {
+    if (modal && e.target === modal) {
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
     }
@@ -25,18 +29,43 @@ window.addEventListener('click', (e) => {
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('nav-links');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navLinks.classList.toggle('active');
-});
+if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
 
-// Close mobile menu when clicking a link
-navLinks.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A') {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-    }
-});
+    navLinks.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        }
+    });
+}
+
+function setActiveNavLink() {
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.remove('active');
+        const href = link.getAttribute('href');
+        if (!href) return;
+        // exact file match
+        if (href === currentPath) {
+            link.classList.add('active');
+            return;
+        }
+        // anchor on home
+        if (href.startsWith('index.html#') && currentPath === 'index.html') {
+            link.classList.add('active');
+            return;
+        }
+        // anchor fragments
+        if (href.startsWith('#') && currentPath === 'index.html') {
+            link.classList.add('active');
+            return;
+        }
+    });
+}
 
 // Smooth scrolling for navigation links with active state
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -112,41 +141,107 @@ document.querySelectorAll('section:not(#home)').forEach(section => {
     observer.observe(section);
 });
 
-// REAL Language toggle logic
-document.getElementById('lang-toggle').addEventListener('click', function() {
-    const btn = this;
-    const heroTitle = document.querySelector('.hero-content h1');
-    
-    if (btn.textContent === 'EN') {
-        btn.textContent = 'AR';
-        heroTitle.textContent = "تصميم مواقع احترافية في دبي"; 
-        document.body.style.direction = 'rtl';
-    } else {
-        btn.textContent = 'EN';
-        heroTitle.textContent = "Premium Web Development in Dubai";
-        document.body.style.direction = 'ltr';
+// Language toggle logic
+const translations = {
+    en: {
+        navHome: 'Home',
+        navSkills: 'Skills',
+        navServices: 'Services',
+        navAbout: 'About',
+        navPortfolio: 'Portfolio',
+        navPricing: 'Pricing',
+        navQuote: 'Request Quote',
+        navTestimonials: 'Testimonials',
+        navContact: 'Contact',
+        heroTag: 'Dubai • Full Stack Web Development • Backend Systems',
+        heroTitle: 'Nawsites',
+        heroText: 'Building premium web platforms, secure backend systems, and high-converting digital experiences for ambitious businesses in Dubai and worldwide.',
+        heroCTA1: 'Request a Quote',
+        heroCTA2: 'Chat on WhatsApp',
+        heroSectionTitle: 'Comprehensive Web Development for Growing Brands',
+        heroSectionText: 'From enterprise-grade backend systems to polished frontend design, Nawsites delivers fully integrated web projects with the attention to detail and reliability expected from a dedicated development partner.'
+    },
+    ar: {
+        navHome: 'الرئيسية',
+        navSkills: 'المهارات',
+        navServices: 'الخدمات',
+        navAbout: 'من نحن',
+        navPortfolio: 'المعرض',
+        navPricing: 'الأسعار',
+        navQuote: 'طلب عرض سعر',
+        navTestimonials: 'الشهادات',
+        navContact: 'تواصل',
+        heroTag: 'دبي • تطوير ويب شامل • أنظمة خلفية',
+        heroTitle: 'نوازيتس',
+        heroText: 'نبني منصات ويب مميزة، أنظمة خلفية آمنة، وتجارب رقمية عالية التحويل للشركات الطموحة في دبي والعالم.',
+        heroCTA1: 'طلب عرض سعر',
+        heroCTA2: 'الدردشة عبر واتساب',
+        heroSectionTitle: 'تطوير ويب شامل للعلامات التجارية النامية',
+        heroSectionText: 'من أنظمة خلفية احترافية إلى تصميم واجهة أمامية مصقول، نوازيتس تقدم مشاريع متكاملة بجودة ومصداقية عالية.'
     }
-});
+};
 
-// REAL Currency toggle logic
-document.getElementById('currency-toggle').addEventListener('click', function() {
-    const button = this;
-    const priceElements = document.querySelectorAll('.price, .price-range');
-    
-    if (button.textContent === 'AED') {
-        button.textContent = 'USD';
-        priceElements.forEach(el => {
-            if (el.textContent.includes('AED')) {
-                let aedVal = parseInt(el.textContent.replace(/[^0-9]/g, ''));
-                let usdVal = Math.round(aedVal / 3.67);
-                el.textContent = el.textContent.replace('AED', '$').replace(/[0-9,]+/, usdVal.toLocaleString());
-            }
-        });
-    } else {
-        button.textContent = 'AED';
-        location.reload(); 
-    }
-});
+function translatePage(lang) {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        const value = translations[lang] && translations[lang][key];
+        if (value) {
+            el.textContent = value;
+        }
+    });
+    document.documentElement.lang = lang;
+    document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+}
+
+const langButton = document.getElementById('lang-toggle');
+if (langButton) {
+    langButton.addEventListener('click', function() {
+        const nextLang = this.textContent === 'EN' ? 'ar' : 'en';
+        this.textContent = nextLang === 'en' ? 'EN' : 'AR';
+        translatePage(nextLang);
+    });
+}
+
+// Currency toggle logic
+const currencyData = {
+    AED: { symbol: 'AED', rate: 1 },
+    USD: { symbol: '$', rate: 0.272 },
+    EUR: { symbol: '€', rate: 0.244 },
+    GBP: { symbol: '£', rate: 0.21 }
+};
+const currencyOrder = ['AED', 'USD', 'EUR', 'GBP'];
+let currencyIndex = 0;
+
+function formatPrice(value, symbol) {
+    return `${symbol} ${value.toLocaleString()}`;
+}
+
+function updatePrices(currency) {
+    document.querySelectorAll('[data-price-aed]').forEach(el => {
+        const baseValue = Number(el.dataset.priceAed);
+        if (!Number.isFinite(baseValue)) return;
+        const converted = Math.round(baseValue * currencyData[currency].rate);
+        el.textContent = formatPrice(converted, currencyData[currency].symbol);
+    });
+    document.querySelectorAll('[data-price-range-aed]').forEach(el => {
+        const min = Number(el.dataset.priceRangeMinAed);
+        const max = Number(el.dataset.priceRangeMaxAed);
+        if (!Number.isFinite(min) || !Number.isFinite(max)) return;
+        const minConverted = Math.round(min * currencyData[currency].rate);
+        const maxConverted = Math.round(max * currencyData[currency].rate);
+        el.textContent = `${formatPrice(minConverted, currencyData[currency].symbol)} - ${formatPrice(maxConverted, currencyData[currency].symbol)}`;
+    });
+}
+
+const currencyButton = document.getElementById('currency-toggle');
+if (currencyButton) {
+    currencyButton.addEventListener('click', function() {
+        currencyIndex = (currencyIndex + 1) % currencyOrder.length;
+        const nextCurrency = currencyOrder[currencyIndex];
+        this.textContent = nextCurrency;
+        updatePrices(nextCurrency);
+    });
+}
 
 // Formspree handles form submission automatically
 
@@ -178,6 +273,7 @@ function initMobileMenu() {
 // Initialize on load
 document.addEventListener('DOMContentLoaded', function() {
     initMobileMenu();
+    setActiveNavLink();
 
     // 1. Make the Hero show up immediately
     const hero = document.querySelector('.hero-content');
@@ -195,4 +291,48 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     console.log("Nawsites is fully loaded and forced to be visible!");
+    // Intro overlay handling: click to enter
+    const intro = document.getElementById('intro');
+    const logo = document.querySelector('.logo');
+    function hideIntro() {
+        if (!intro) return;
+        intro.classList.add('hidden');
+        // after animation remove intro and scroll to #start
+        setTimeout(() => {
+            if (intro && intro.parentNode) intro.parentNode.removeChild(intro);
+            const start = document.getElementById('start');
+            if (start) {
+                start.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }, 700);
+    }
+    if (intro) {
+        intro.addEventListener('click', hideIntro);
+        // allow pressing Enter/Space to enter
+        intro.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') hideIntro();
+        });
+    }
+    if (logo) {
+        logo.addEventListener('click', function(e) {
+            // If on index, trigger intro animation to mimic opening
+            if (window.location.pathname.split('/').pop() === 'index.html' || window.location.pathname.split('/').pop() === '') {
+                const existingIntro = document.getElementById('intro');
+                if (existingIntro) {
+                    // do nothing if intro visible
+                    return;
+                }
+                // create a quick overlay mimic
+                const temp = document.createElement('div');
+                temp.className = 'intro';
+                temp.innerHTML = '<h1 class="intro-title">Nawsites</h1><p class="intro-sub">Click to enter</p>';
+                document.body.appendChild(temp);
+                setTimeout(() => temp.classList.add('hidden'), 1200);
+                setTimeout(() => { if (temp.parentNode) temp.parentNode.removeChild(temp); }, 1900);
+            } else {
+                // navigate home
+                window.location.href = 'index.html';
+            }
+        });
+    }
 });

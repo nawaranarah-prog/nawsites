@@ -7,8 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="intro" class="intro">
+        <h1 class="intro-title">Nawsites</h1>
+        <p class="intro-sub">Click to enter</p>
+    </div>
     <header id="navbar">
         <nav>
             <div class="nav-container">
@@ -19,14 +24,15 @@
                     <span></span>
                 </div>
                 <ul class="nav-links" id="nav-links">
-                    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#services"><i class="fas fa-cogs"></i> Services</a></li>
-                    <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
-                    <li><a href="#portfolio"><i class="fas fa-briefcase"></i> Portfolio</a></li>
-                    <li><a href="#pricing"><i class="fas fa-tags"></i> Pricing</a></li>
-                    <li><a href="#testimonials"><i class="fas fa-star"></i> Testimonials</a></li>
-                    <li><a href="#quote"><i class="fas fa-envelope"></i> Request Quote</a></li>
-                    <li><a href="#contact"><i class="fas fa-phone"></i> Contact</a></li>
+                    <li><a href="index.html#home"><i class="fas fa-home"></i> <span data-i18n="navHome">Home</span></a></li>
+                    <li><a href="services.html"><i class="fas fa-cogs"></i> <span data-i18n="navServices">Services</span></a></li>
+                    <li><a href="about.html"><i class="fas fa-user"></i> <span data-i18n="navAbout">About</span></a></li>
+                    <li><a href="skills.html"><i class="fas fa-code"></i> <span data-i18n="navSkills">Skills</span></a></li>
+                    <li><a href="portfolio.html"><i class="fas fa-briefcase"></i> <span data-i18n="navPortfolio">Portfolio</span></a></li>
+                    <li><a href="index.html#pricing"><i class="fas fa-tags"></i> <span data-i18n="navPricing">Pricing</span></a></li>
+                    <li><a href="index.html#testimonials"><i class="fas fa-star"></i> <span data-i18n="navQuote">Testimonials</span></a></li>
+                    <li><a href="index.html#quote"><i class="fas fa-envelope"></i> <span data-i18n="navQuote">Request Quote</span></a></li>
+                    <li><a href="contact.html"><i class="fas fa-phone"></i> <span data-i18n="navContact">Contact</span></a></li>
                 </ul>
                 <div class="nav-controls">
                     <button id="lang-toggle" title="Switch Language"><i class="fas fa-globe"></i> EN</button>
@@ -38,23 +44,69 @@
 
     <main>
         <section id="home" class="hero">
+            <div class="hero-video-wrap">
+                <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80">
+                    <source src="https://cdn.coverr.co/videos/coverr-laptop-background-coding-3177/1080p.mp4" type="video/mp4">
+                    Your browser does not support video playback.
+                </video>
+                <div class="hero-overlay"></div>
+            </div>
             <div class="hero-content loading">
-                <span class="hero-tag">Dubai • Premium Web Development</span>
-                <h1>Premium Websites That Elevate Your Business</h1>
-                <p>Transform your online presence with professional websites designed to drive growth, build credibility, and increase conversions. Based in Dubai, serving businesses worldwide.</p>
+                <span class="hero-tag" data-i18n="heroTag">Dubai • Full Stack Web Development • Backend Systems</span>
+                <h1 data-i18n="heroTitle">Nawsites</h1>
+                <p data-i18n="heroText">Building premium web platforms, secure backend systems, and high-converting digital experiences for ambitious businesses in Dubai and worldwide.</p>
                 <div class="cta-buttons">
-                    <a href="#" id="open-quote-modal" class="btn primary">Request a Quote</a>
-                    <a href="https://wa.me/971556112260" class="btn secondary" target="_blank"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+                    <a href="#quote" class="btn primary" data-i18n="heroCTA1">Request a Quote</a>
                 </div>
                 <div class="hero-highlights">
                     <div class="highlight">
-                        <strong>On-time delivery</strong> — your website launched with precision and reliability.
+                        <strong>Secure backend architecture</strong> — APIs, databases, and enterprise workflows built for scale.
                     </div>
                     <div class="highlight">
-                        <strong>Conversion-first strategy</strong> — every page is designed to attract clients and close deals.
+                        <strong>Global-ready experiences</strong> — currency conversion, language support, and fast international delivery.
                     </div>
                     <div class="highlight">
-                        <strong>Luxury corporate quality</strong> — premium execution that matches Dubai business standards.
+                        <strong>Luxury digital craftsmanship</strong> — polished design, conversion-focused layouts, and modern performance.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lead-copy">
+            <div class="container">
+                <h2>Comprehensive Web Development for Growing Brands</h2>
+                <p>From enterprise-grade backend systems to polished frontend design, Nawsites delivers fully integrated web projects with the attention to detail and reliability expected from a dedicated development partner.</p>
+
+                <h3>Custom Backend Systems</h3>
+                <p>APIs, server logic, database architecture, and secure business workflows built for rapid growth.</p>
+
+                <h3>Modern Web Applications</h3>
+                <p>Responsive websites and progressive web apps with clean UX, fast loading, and clear conversion paths.</p>
+
+                <h3>Data &amp; Integrations</h3>
+                <p>Payment gateways, CRM sync, analytics, cloud services, and custom systems connected to your core operations.</p>
+            </div>
+        </section>
+
+        <section class="section-capabilities">
+            <div class="container loading">
+                <div class="section-intro">
+                    <span class="section-badge">Professional Backend + Frontend</span>
+                    <h2>Our Approach</h2>
+                    <p>From enterprise-grade backend systems to polished frontend design, Nawsites delivers fully integrated web projects with the attention to detail and reliability expected from a dedicated development partner.</p>
+                </div>
+                <div class="capabilities-grid">
+                    <div class="capability-card">
+                        <h3>Custom Backend Systems</h3>
+                        <p>APIs, server logic, database architecture, and secure business workflows built for rapid growth.</p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>Modern Web Applications</h3>
+                        <p>Responsive websites and progressive web apps with clean UX, fast loading, and clear conversion paths.</p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>Data & Integrations</h3>
+                        <p>Payment gateways, CRM sync, analytics, cloud services, and custom systems connected to your core operations.</p>
                     </div>
                 </div>
             </div>
@@ -137,7 +189,6 @@
                 <p>Showcasing recent projects that demonstrate our commitment to quality and results</p>
                 <div class="portfolio-grid">
                     <div class="portfolio-item">
-                        <img src="https://via.placeholder.com/400x300/001122/ffffff?text=Luxury+Real+Estate" alt="Luxury Real Estate Website">
                         <div class="portfolio-content">
                             <h3>Dubai Luxury Estates</h3>
                             <p>A premium real estate website featuring property listings, virtual tours, and lead generation forms.</p>
@@ -145,7 +196,6 @@
                         </div>
                     </div>
                     <div class="portfolio-item">
-                        <img src="https://via.placeholder.com/400x300/001122/ffffff?text=E-commerce+Store" alt="E-commerce Store">
                         <div class="portfolio-content">
                             <h3>Elite Fashion Boutique</h3>
                             <p>Full e-commerce solution with inventory management, payment integration, and mobile optimization.</p>
@@ -153,7 +203,6 @@
                         </div>
                     </div>
                     <div class="portfolio-item">
-                        <img src="https://via.placeholder.com/400x300/001122/ffffff?text=Corporate+Website" alt="Corporate Website">
                         <div class="portfolio-content">
                             <h3>TechCorp Solutions</h3>
                             <p>Corporate website redesign with improved user experience and modern design standards.</p>
@@ -161,7 +210,6 @@
                         </div>
                     </div>
                     <div class="portfolio-item">
-                        <img src="https://via.placeholder.com/400x300/001122/ffffff?text=Landing+Page" alt="Landing Page">
                         <div class="portfolio-content">
                             <h3>Startup Launch Page</h3>
                             <p>High-converting landing page for a tech startup's product launch campaign.</p>
@@ -178,13 +226,13 @@
                 <div class="pricing-content">
                     <div class="pricing-main">
                         <h3>Custom Pricing Based on Your Needs</h3>
-                        <p>Projects start from <span class="price">AED 4,000</span></p>
+                        <p>Projects start from <span class="price" data-price-aed="4000">AED 4,000</span></p>
                         <p>Every project is unique, and pricing is determined by the specific requirements, complexity, and features needed. I offer transparent pricing with no hidden costs.</p>
                     </div>
                     <div class="pricing-ranges">
                         <div class="range">
                             <h4>Basic Business Website</h4>
-                            <p class="price-range">AED 4,000 - 7,000</p>
+                            <p class="price-range" data-price-range-aed data-price-range-min-aed="4000" data-price-range-max-aed="7000">AED 4,000 - 7,000</p>
                             <ul>
                                 <li>Up to 5 pages</li>
                                 <li>Responsive design</li>
@@ -194,7 +242,7 @@
                         </div>
                         <div class="range">
                             <h4>Advanced Business Website</h4>
-                            <p class="price-range">AED 7,000 - 10,000</p>
+                            <p class="price-range" data-price-range-aed data-price-range-min-aed="7000" data-price-range-max-aed="10000">AED 7,000 - 10,000</p>
                             <ul>
                                 <li>Up to 10 pages</li>
                                 <li>E-commerce integration</li>
@@ -204,7 +252,7 @@
                         </div>
                         <div class="range">
                             <h4>Premium Custom Solution</h4>
-                            <p class="price-range">AED 10,000 - 15,000+</p>
+                            <p class="price-range" data-price-range-aed data-price-range-min-aed="10000" data-price-range-max-aed="15000">AED 10,000 - 15,000+</p>
                             <ul>
                                 <li>Unlimited pages</li>
                                 <li>Custom functionality</li>
